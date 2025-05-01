@@ -1,0 +1,13 @@
+.footer {
+    background-color: transparent; /* Inherit from App.css */
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    border-top: 1px solid #3f37c9;
+  }
+  
+  .footer p {
+    margin: 0;
+  }
