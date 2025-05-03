@@ -12,4 +12,9 @@ code {
     monospace;
 }
 
+.bg-pattern {
+  background-image: radial-gradient(#ccc 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
 /* You can add more basic global resets or font imports here */

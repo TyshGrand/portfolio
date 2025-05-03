@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Ensure full viewport height */
-  background-color: #1a1a2e;
-  color: #f8f8f8;
+  /* background-color: #1a1a2e; */
+  /* color: #f8f8f8; */
 }
 
 .app-header {
@@ -13,7 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #3f37c9;
+  /* border-bottom: 1px solid #3f37c9; */
 }
 
 .app-header h1 {
@@ -62,7 +62,7 @@
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
-  border-top: 1px solid #3f37c9;
+  /* border-top: 1px solid #3f37c9; */
   /* Remove position: fixed or bottom: 0 if you had them */
 }
 

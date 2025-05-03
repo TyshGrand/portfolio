@@ -1,5 +1,5 @@
 .one-page-scroll-container {
-    background-color: #3f37c9;
+    /* background-color: #3f37c9; */
     overflow-y: auto;
     scroll-snap-type: y mandatory;
     height: 100vh; /* Ensure full viewport height */

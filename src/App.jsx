@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import './App.css';
 import './OnePageScroll.css'; // New CSS for one-page layout
+import BubbleBackground from './components/BubbleBackground/BubbleBackground';
 
 function App() {
   const aboutRef = useRef(null);
@@ -94,8 +95,8 @@ useEffect(() => {
       </main>
       <Footer/>
     </div>
-
   );
 }
 
 export default App;
+
