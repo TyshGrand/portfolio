@@ -149,3 +149,28 @@ li {
     font-size: 1.2rem;
   }
 }
+.one-page-scroll-container {
+  /* background-color: #3f37c9; */
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  height: 100vh; /* Ensure full viewport height */
+}
+
+.one-page-scroll-main {
+  
+  background-image: url('assets/pattern.jpg');
+  background-size: contain;
+}
+
+.one-page-scroll-main > section {
+  scroll-snap-align: start;
+  min-height: 100vh; /* Each section takes at least the full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content within sections */
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+ 
+
+}

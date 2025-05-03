@@ -16,7 +16,9 @@ function App() {
   const educationRef = useRef(null);
   const achievementsRef = useRef(null);
   const contactRef = useRef(null);  
-  const scrollContainerRef = useRef(null); // NEW
+  const scrollContainerRef = useRef(null); 
+  const scrollMainRef = useRef(null); 
+
 
 
   const [activeSection, setActiveSection] = useState('about');
@@ -65,38 +67,57 @@ useEffect(() => {
   };
 }, []);
 
+useEffect(() => {
+  const bubble = scrollMainRef.current;
+  const zoomSize = 2;
+
+  const handleMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    bubble.style.left = `${clientX}px`;
+    bubble.style.top = `${clientY}px`;
+    bubble.style.backgroundPosition = `-${clientX * zoomSize - 128}px -${
+      clientY * zoomSize - 128
+    }px`;
+  };
+
+  window.addEventListener("mousemove", handleMouseMove);
+  return () => window.removeEventListener("mousemove", handleMouseMove);
+}, []);
+
   return (
     <div ref={scrollContainerRef} className="one-page-scroll-container">
-      <Navbar
-        activeSection={activeSection}
-        scrollToSection={scrollToSection}
-        aboutRef={aboutRef}
-        experienceRef={experienceRef}
-        educationRef={educationRef}
-        achievementsRef={achievementsRef}
-        contactRef={contactRef}
-      />
-      <main className="one-page-scroll-main">
-        <section ref={aboutRef} id="about" className="scroll-section">
-          <About />
-        </section>
-        <section ref={experienceRef} id="experience" className="scroll-section">
-          <Experience />
-        </section>
-        <section ref={educationRef} id="education" className="scroll-section">
-          <Education />
-        </section>
-        <section ref={achievementsRef} id="achievements" className="scroll-section">
-          <Achievements />
-        </section>
-        <section ref={contactRef} id="contact" className="scroll-section">
-          <Contact />
-        </section>
-      </main>
-      <Footer/>
-    </div>
+<Navbar
+  activeSection={activeSection}
+  scrollToSection={scrollToSection}
+  aboutRef={aboutRef}
+  experienceRef={experienceRef}
+  educationRef={educationRef}
+  achievementsRef={achievementsRef}
+  contactRef={contactRef}
+/>
+<main ref={scrollMainRef} className="one-page-scroll-main">
+  <section ref={aboutRef} id="about" className="scroll-section">
+    <About />
+  </section>
+  <section ref={experienceRef} id="experience" className="scroll-section">
+    <Experience />
+  </section>
+  <section ref={educationRef} id="education" className="scroll-section">
+    <Education />
+  </section>
+  <section ref={achievementsRef} id="achievements" className="scroll-section">
+    <Achievements />
+  </section>
+  <section ref={contactRef} id="contact" className="scroll-section">
+    <Contact />
+  </section>
+  </main>
+  <Footer/>
+</div> 
+   
   );
 }
 
 export default App;
 
+ 

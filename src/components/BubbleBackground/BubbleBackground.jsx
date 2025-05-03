@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import patternImage from "../../assets/pattern.jpg"; // Adjust path based on file location
 
 export default function BubbleBackground() {
   const bubbleRef = useRef(null);
@@ -28,7 +29,7 @@ export default function BubbleBackground() {
     <div
       className="relative w-full h-screen overflow-hidden"
       style={{
-        backgroundImage: "url('/assets/pattern.jpg')",
+        backgroundImage: 'url( ${patternImage})',
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -38,7 +39,7 @@ export default function BubbleBackground() {
         className="pointer-events-none absolute w-64 h-64 rounded-full border-2 border-white z-10"
         style={{
           transform: "translate(-50%, -50%)",
-          backgroundImage: "url('/assets/pattern.jpg')",
+          backgroundImage: "url( )",
           backgroundSize: "200%", // matches zoomSize
           backgroundRepeat: "no-repeat",
           mixBlendMode: "normal",
