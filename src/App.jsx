@@ -67,22 +67,47 @@ useEffect(() => {
   };
 }, []);
 
-useEffect(() => {
-  const bubble = scrollMainRef.current;
-  const zoomSize = 2;
 
-  const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
-    bubble.style.left = `${clientX}px`;
-    bubble.style.top = `${clientY}px`;
-    bubble.style.backgroundPosition = `-${clientX * zoomSize - 128}px -${
-      clientY * zoomSize - 128
-    }px`;
-  };
+// useEffect(() => {
+//   const main = scrollMainRef.current;
 
-  window.addEventListener("mousemove", handleMouseMove);
-  return () => window.removeEventListener("mousemove", handleMouseMove);
-}, []);
+//   const handleMouseMove = (e) => {
+//     const rect = main.getBoundingClientRect();
+//     const x = e.clientX - rect.left;
+//     const y = e.clientY - rect.top;
+
+//     // Set mouse position
+//     main.style.setProperty('--mouse-x', `${x}px`);
+//     main.style.setProperty('--mouse-y', `${y}px`);
+
+//     // Background position to match zoomed area
+//     main.style.setProperty('--bg-x', `${(x / rect.width) * 100}%`);
+//     main.style.setProperty('--bg-y', `${(y / rect.height) * 100}%`);
+
+//     // Set the zoom bubble radius
+//     main.style.setProperty('clip-path', `circle(25vw at ${x}px ${y}px)`);
+//     main.style.setProperty('--clip-size', `25vw`);
+//     main.style.setProperty('--clip-center', `${x}px ${y}px`);
+//   };
+
+//   const handleMouseEnter = () => {
+//     main.style.setProperty('--clip-size', '25vw');
+//   };
+
+//   const handleMouseLeave = () => {
+//     main.style.setProperty('--clip-size', '0px');
+//   };
+
+//   main.addEventListener('mousemove', handleMouseMove);
+//   main.addEventListener('mouseenter', handleMouseEnter);
+//   main.addEventListener('mouseleave', handleMouseLeave);
+
+//   return () => {
+//     main.removeEventListener('mousemove', handleMouseMove);
+//     main.removeEventListener('mouseenter', handleMouseEnter);
+//     main.removeEventListener('mouseleave', handleMouseLeave);
+//   };
+// }, []);
 
   return (
     <div ref={scrollContainerRef} className="one-page-scroll-container">

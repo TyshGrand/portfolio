@@ -1,3 +1,8 @@
 .about-section {
+  border: 1rem;
+  border-color: aliceblue;
+  border-radius: 2rem;
+  background-color: rgb(10, 5, 22);
+  padding: 3rem;
     /* Add specific styles for the About component */
   }

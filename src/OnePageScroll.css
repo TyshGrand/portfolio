@@ -1,0 +1,70 @@
+.one-page-scroll-container {
+    /* background-color: #3f37c9; */
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    height: 100vh; /* Ensure full viewport height */
+    position: relative;
+
+  }
+  
+  .one-page-scroll-main {
+    
+    background-image: url('assets/img/bg.png');
+    background-size: contain;
+    background-position: center ;
+  }
+/* 
+  .one-page-scroll-main::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: url('assets/img/dark-pattern.jpg');
+    background-size: 200%;
+    background-repeat: repeat;
+    background-position: var(--bg-x, 50%) var(--bg-y, 50%);
+    clip-path: circle(0px at var(--mouse-x, 50%) var(--mouse-y, 50%));
+    transition: clip-path 0.2s ease;
+    z-index: 1;
+  } */
+  
+  .one-page-scroll-main > section {
+    scroll-snap-align: start;
+    min-height: 100vh; /* Each section takes at least the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content within sections */
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+
+  /* .zoom-bubble {
+    position: absolute;
+    pointer-events: none;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease;
+    opacity: 0;
+    z-index: 10;
+  }
+  
+  .zoom-bubble::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: url('assets/pattern.jpg');
+    background-size: contain;
+    transform: scale(1.2);
+    transform-origin: center;
+  } */
+  

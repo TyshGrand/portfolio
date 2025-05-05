@@ -5,8 +5,11 @@ function Navbar({ activeSection, scrollToSection, aboutRef, experienceRef, educa
     // console.log('Navbar received activeSection:', activeSection);
 
   return (
+    <div>
     <nav className="navbar">
       <ul>
+      <h1 className="navbar-title">Tushar Gupta </h1>
+      <div></div>
         <li>
           <button
             onClick={() => scrollToSection(aboutRef, 'about')}
@@ -49,6 +52,7 @@ function Navbar({ activeSection, scrollToSection, aboutRef, experienceRef, educa
         </li>
       </ul>
     </nav>
+    </div>
   );
 }
 
