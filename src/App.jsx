@@ -110,6 +110,7 @@ useEffect(() => {
 // }, []);
 
   return (
+    <>
     <div ref={scrollContainerRef} className="one-page-scroll-container">
 <Navbar
   activeSection={activeSection}
@@ -137,8 +138,8 @@ useEffect(() => {
     <Contact />
   </section>
   </main>
-  <Footer/>
 </div> 
+</>
    
   );
 }

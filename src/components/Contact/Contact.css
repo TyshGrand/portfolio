@@ -1,17 +1,75 @@
-.contact-section ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .contact-section ul li {
-    margin-bottom: 10px;
-  }
-  
-  .contact-section a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .contact-section a:hover {
-    text-decoration: underline;
-  }
+
+
+.contacts-container {
+
+}
+
+
+.contacts-container ul {
+  padding: auto;
+  position: relative;
+  align-content: center center;
+  text-align: center;
+
+
+}
+
+.contacts-container ul li {
+  list-style: none;
+  display: inline-block;
+}
+
+.contacts-container  ul li a {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  text-align: center;
+  line-height: 80px;
+  font-size: 35px;
+  margin: 0 10px;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #fff;
+  z-index: 1;
+}
+
+.contact-section ul li a .icon {
+  position: relative;
+  color: #262626;
+  transition: .5s;
+  z-index: 3;
+}
+
+.contact-section ul li a:hover .icon {
+  color: #fff;
+  transform: rotateY(360deg);
+}
+
+.contact-section ul li a:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f00;
+  transition: .5s;
+  z-index: 2;
+}
+
+.contact-section ul li a:hover:before {
+  top: 0;
+}
+
+ul li:nth-child(1) a:before{
+  background: black;
+}
+
+ul li:nth-child(2) a:before{
+  background: #55acee;
+}
+ul li:nth-child(3) a:before {
+  background: #dd4b39;
+}
