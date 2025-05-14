@@ -1,18 +1,29 @@
 .one-page-scroll-container {
     /* background-color: #3f37c9; */
+    /* display: flex; */
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
+    /* scroll-snap-type: y mandatory; */
     height: 100vh; /* Ensure full viewport height */
-    position: relative;
+    /* position: relative; */
 
   }
   
   .one-page-scroll-main {
     
-    background-image: url('assets/img/bg.png');
+    /* flex: 1; */
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+    background-image: url('assets/img/bg.png'); 
     background-size: contain;
-    background-position: center ;
+    background-position: center ; 
   }
+  
+  .content-scroll {
+  overflow-y: auto;
+  padding: 1rem;
+  align-content: center;
+}
 /* 
   .one-page-scroll-main::after {
     content: '';

@@ -7,10 +7,45 @@
     /* Add specific styles for the About component */
   }
 
-  .about-section p{
+.about-section p{
     font-size: 16;
     font-weight: 600;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-image {
+  flex: 1;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Optional: responsive layout */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
   }
+}
+
+
 
   /* .holographic-container {
     display: flex;
@@ -18,11 +53,12 @@
     align-items: center;
     height: 100vh;
     background: #000;
-  } */
+  }  */
   
   .holographic-card {
-    width: 60%;
-    height: 200px;
+    display: flexbox;
+    /* width: 60%;
+    height: 200px; */
     background: #111;
     display: flex;
     justify-content: center;
@@ -59,7 +95,7 @@
   }
   
   .holographic-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     box-shadow: 0 0 20px rgba(0,255,255,0.5);
   }
   

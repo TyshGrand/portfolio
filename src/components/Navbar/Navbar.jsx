@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 
 function Navbar({ activeSection, scrollToSection, aboutRef, experienceRef, educationRef, achievementsRef, contactRef }) {
-    // console.log('Navbar received activeSection:', activeSection);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleNavClick = (ref, section) => {
+    // console.log(ref,section)
+    scrollToSection(ref, section);
+    setMenuOpen(false); // Close menu on mobile after selection
+  };
 
   return (
-    <div>
     <nav className="navbar">
-      <ul>
-      <h1 className="navbar-title">Tushar Gupta </h1>
-      <div></div>
+      <div className="navbar-content">
+        <h1 className="navbar-title">Tushar Gupta</h1>
+        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          ☰
+        </button>
+
+      <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
         <li>
           <button
-            onClick={() => scrollToSection(aboutRef, 'about')}
+            onClick={() => handleNavClick(aboutRef, 'about')}
             className={activeSection === 'about' ? 'active' : ''}
           >
             About
@@ -20,7 +29,7 @@ function Navbar({ activeSection, scrollToSection, aboutRef, experienceRef, educa
         </li>
         <li>
           <button
-            onClick={() => scrollToSection(experienceRef, 'experience')}
+            onClick={() => handleNavClick(experienceRef, 'experience')}
             className={activeSection === 'experience' ? 'active' : ''}
           >
             Experience
@@ -28,7 +37,7 @@ function Navbar({ activeSection, scrollToSection, aboutRef, experienceRef, educa
         </li>
         <li>
           <button
-            onClick={() => scrollToSection(educationRef, 'education')}
+            onClick={() => handleNavClick(educationRef, 'education')}
             className={activeSection === 'education' ? 'active' : ''}
           >
             Education
@@ -36,7 +45,7 @@ function Navbar({ activeSection, scrollToSection, aboutRef, experienceRef, educa
         </li>
         <li>
           <button
-            onClick={() => scrollToSection(achievementsRef, ' achievements')}
+            onClick={() => handleNavClick(achievementsRef, 'achievements')}
             className={activeSection === 'achievements' ? 'active' : ''}
           >
             Achievements
@@ -44,15 +53,16 @@ function Navbar({ activeSection, scrollToSection, aboutRef, experienceRef, educa
         </li>
         <li>
           <button
-            onClick={() => scrollToSection(contactRef, 'contact')}
+            onClick={() => handleNavClick(contactRef, 'contact')}
             className={activeSection === 'contact' ? 'active' : ''}
           >
             Contact
           </button>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
+
     </nav>
-    </div>
   );
 }
 

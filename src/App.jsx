@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer';
 import './App.css';
 import './OnePageScroll.css'; // New CSS for one-page layout
 import BubbleBackground from './components/BubbleBackground/BubbleBackground';
+import SideNavbar from './components/SideNavbar/SideNavbar';
 
 function App() {
   const aboutRef = useRef(null);
@@ -17,7 +18,9 @@ function App() {
   const achievementsRef = useRef(null);
   const contactRef = useRef(null);  
   const scrollContainerRef = useRef(null); 
-  const scrollMainRef = useRef(null); 
+  const scrollMainRef = useRef(null);
+  const [showFooter, setShowFooter] = useState(true);
+  
 
 
 
@@ -40,7 +43,11 @@ useEffect(() => {
 
     if (contactRef.current && scrollPosition >= contactRef.current.offsetTop - offset) {
       currentActiveSection = 'contact';
-    } else if (achievementsRef.current && scrollPosition >= achievementsRef.current.offsetTop - offset) {
+      setShowFooter(false)
+    } else{
+      setShowFooter(true)
+    }
+    if (achievementsRef.current && scrollPosition >= achievementsRef.current.offsetTop - offset) {
       currentActiveSection = 'achievements';
     } else if (educationRef.current && scrollPosition >= educationRef.current.offsetTop - offset) {
       currentActiveSection = 'education';
@@ -67,77 +74,35 @@ useEffect(() => {
   };
 }, []);
 
-
-// useEffect(() => {
-//   const main = scrollMainRef.current;
-
-//   const handleMouseMove = (e) => {
-//     const rect = main.getBoundingClientRect();
-//     const x = e.clientX - rect.left;
-//     const y = e.clientY - rect.top;
-
-//     // Set mouse position
-//     main.style.setProperty('--mouse-x', `${x}px`);
-//     main.style.setProperty('--mouse-y', `${y}px`);
-
-//     // Background position to match zoomed area
-//     main.style.setProperty('--bg-x', `${(x / rect.width) * 100}%`);
-//     main.style.setProperty('--bg-y', `${(y / rect.height) * 100}%`);
-
-//     // Set the zoom bubble radius
-//     main.style.setProperty('clip-path', `circle(25vw at ${x}px ${y}px)`);
-//     main.style.setProperty('--clip-size', `25vw`);
-//     main.style.setProperty('--clip-center', `${x}px ${y}px`);
-//   };
-
-//   const handleMouseEnter = () => {
-//     main.style.setProperty('--clip-size', '25vw');
-//   };
-
-//   const handleMouseLeave = () => {
-//     main.style.setProperty('--clip-size', '0px');
-//   };
-
-//   main.addEventListener('mousemove', handleMouseMove);
-//   main.addEventListener('mouseenter', handleMouseEnter);
-//   main.addEventListener('mouseleave', handleMouseLeave);
-
-//   return () => {
-//     main.removeEventListener('mousemove', handleMouseMove);
-//     main.removeEventListener('mouseenter', handleMouseEnter);
-//     main.removeEventListener('mouseleave', handleMouseLeave);
-//   };
-// }, []);
-
   return (
     <>
-    <div ref={scrollContainerRef} className="one-page-scroll-container">
-<Navbar
-  activeSection={activeSection}
-  scrollToSection={scrollToSection}
-  aboutRef={aboutRef}
-  experienceRef={experienceRef}
-  educationRef={educationRef}
-  achievementsRef={achievementsRef}
-  contactRef={contactRef}
-/>
-<main ref={scrollMainRef} className="one-page-scroll-main">
-  <section ref={aboutRef} id="about" className="scroll-section">
-    <About />
-  </section>
-  <section ref={experienceRef} id="experience" className="scroll-section">
-    <Experience />
-  </section>
-  <section ref={educationRef} id="education" className="scroll-section">
-    <Education />
-  </section>
-  <section ref={achievementsRef} id="achievements" className="scroll-section">
-    <Achievements />
-  </section>
-  <section ref={contactRef} id="contact" className="scroll-section">
-    <Contact />
-  </section>
-  </main>
+    <div ref={scrollContainerRef} className="app-layout">
+      <SideNavbar/>
+      <main ref={scrollMainRef} className="one-page-scroll-main">
+        <div className={`footer-container ${showFooter ? 'slide-in' : 'slide-out'}`}>
+          <Footer/>
+        </div>
+        <div className="content-scroll">
+           <section ref={aboutRef} id="about" className="scroll-section">
+              <About />
+            </section>
+            <section ref={experienceRef} id="experience" className="scroll-section">
+              <Experience />
+            </section>
+            <section ref={educationRef} id="education" className="scroll-section">
+              <Education />
+            </section>
+            <section ref={achievementsRef} id="achievements" className="scroll-section">
+              <Achievements />
+            </section>
+            <section ref={contactRef} id="contact" className="scroll-section">
+              <Contact />
+            </section>
+        </div>
+
+ 
+      </main>
+  
 </div> 
 </>
    

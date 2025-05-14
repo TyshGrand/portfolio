@@ -17,9 +17,11 @@ function Contact() {
             <i class="fab fa-github icon"></i>    </a>
         </li>
         <li>
-          <a href="#"><i class="fab fa-linkedin-in icon"></i></a></li>
+          <a href="https://www.linkedin.com/in/tushargupta12/"  target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin-in icon"></i></a></li>
         <li>
-          <a href="#"><i class="fa fa-envelope icon"></i></a></li>
+          <a href="mailto:tushargupta9041@gmail.com"   target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-envelope icon"></i></a></li>
       </ul>
       </div>
       
