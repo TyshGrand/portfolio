@@ -1,12 +1,14 @@
-import React from 'react';
-import './Footer.css';
+import './Footer.css'
 
-function Footer() {
-  return (
-    <footer className="footer">
-      <p>&copy; {new Date().getFullYear()} Your Name</p>
-    </footer>
-  );
-}
+const Footer = () => (
+  <footer className='footer'>
+    <a
+      href='https://github.com/rjshkhr/cleanfolio'
+      className='link footer__link'
+    >
+      Created By Raj Shekhar
+    </a>
+  </footer>
+)
 
-export default Footer;
+export default Footer
